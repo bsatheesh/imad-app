@@ -6,7 +6,7 @@ var config = {
     user:'digisath',
     database:'digisath',
     password:process.env.DB_PASSWORD,
-    host:'db.hasura-app.io',
+    host:'localhost',
     port:'5432'
 }
 var pool= new Pool(config);
