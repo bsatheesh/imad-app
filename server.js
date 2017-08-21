@@ -5,7 +5,7 @@ var Pool = require('pg').Pool;
 var config = {
     user:'digisath',
     database:'digisath',
-    password:'db-digisath-69677',
+    password:process.env.DB_PASSWORD //'db-digisath-69677',
     host:'db.imad.hasura-app.io',
     port:'5432'
 }
