@@ -6,7 +6,7 @@ var config = {
     user:'digisath',
     database:'digisath',
     password:'db-digisath-69677',
-    host:'imad.hasura-app.io',
+    host:'db.imad.hasura-app.io',
     port:'5432'
 }
 var pool= new Pool(config);
