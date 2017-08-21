@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
 
 app.get('/article/abc',function(req,res)
 {
-    pool.query("SELECT * FROM ARTICLE WHERE title = " +req.param.abcd, function(err,result)
+    pool.query("SELECT * FROM ARTICLE WHERE title = " +req.param.abc, function(err,result)
     {
         if(err)
         {
