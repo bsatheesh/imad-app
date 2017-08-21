@@ -1,14 +1,33 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
+var Pool = require('pg').Pool;
+var config = {
+    user:'digisath',
+    database:'digisath',
+    password:process.env.DB_PASSWORD,
+    host:'db.hasura-app.io',
+    port:'5432'
+}
+var pool= new Pool(config);
 var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
+app.get('/test-db', function (req,res)
+{
+    pool.query("SELECT * FROM ARTICLE", function(err,result)
+    {
+        if(err)
+        {res.status(500).send(err.tostring())}
+        else
+        {
+            res.send(JSON.Stringify(result));
+        }
+    })
+});
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
