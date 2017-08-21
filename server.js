@@ -19,10 +19,13 @@ app.get('/', function (req, res) {
 
 app.get('/article/articlename',function(req,res)
 {
-    pool.query("SELECT * FROM ARTICLE", function(err,result)
+    pool.query("SELECT * FROM ARTICLE WHERE title=" +'req.params.articlename', function(err,result)
     {
         if(err)
-        {res.status(500).send(err.toString())}
+        {
+            res.status(500).send(err.toString())
+            
+        }
         else
         {
             res.send(JSON.stringify(result));
