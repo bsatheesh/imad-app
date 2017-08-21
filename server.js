@@ -17,9 +17,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article/articlename',function(req,res)
+app.get('/article/abc',function(req,res)
 {
-    pool.query("SELECT * FROM ARTICLE WHERE title = " +req.param.articlename, function(err,result)
+    pool.query("SELECT * FROM ARTICLE WHERE title = " +req.param.abc, function(err,result)
     {
         if(err)
         {
