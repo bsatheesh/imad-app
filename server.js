@@ -17,10 +17,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/articles/articlename',function(req,res))
+app.get('/articles/articlename',function(req,res)
 {
     
-}
+})
 app.get('/test-db', function (req,res)
 {
     pool.query("SELECT * FROM ARTICLE", function(err,result)
